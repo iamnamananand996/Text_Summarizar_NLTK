@@ -1,0 +1,72 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+
+
+<!-- nav bar -->
+<div>
+        <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="/" style="font-size:25px">Summarize Text</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                  </ul>
+                </div>
+              </nav>
+</div>
+
+
+
+<!-- main content -->
+
+<div class="container">
+
+<!-- Text input -->
+    <form action="/summary" method="POST">
+        <textarea name="data" id="" cols="30" rows="7" class="form-control"></textarea>
+        <br>
+        
+        <input type="submit" class="btn" value="Summarize">
+        <input type="reset" class="btn" value="Reset" style="padding-left:25px;padding-right: 25px;margin-left: 10px;">
+    </form>
+
+    <br>
+    <br>
+<!-- url input -->
+    <form action="/url_summary" method="POST">
+        <input type="text" class="form-control" name="url" placeholder="Enter url">
+        <br>
+        <input type="submit" class="btn" value="Summarize">
+        <input type="reset" class="btn" value="Reset" style="padding-left:25px;padding-right: 25px;margin-left: 10px;">
+    </form>
+
+    <br>
+    <br>
+    <div class="row">
+            <div class="col-sm-6">{{raw_data}}
+                <div style="padding-top:10px">
+                    <h4>{{raw_data_len}}</h4>
+                    <h4 style="padding-top:10px">{{data_time}}</h4>
+                </div>
+            </div>
+            <div class="col-sm-6">{{summary}}
+                <div style="padding-top:10px">
+                    <h4>{{summary_len}} </h4>
+                    <h4 style="padding-top:10px">{{summaried_text_time}}</h4>
+                </div>
+            </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+{% endblock %}
